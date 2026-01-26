@@ -19,6 +19,7 @@ export const projects = [
       "Owned execution across product and operations",
     ],
     link: "https://smaked.com",
+    headerBg: "bg-[hsl(142,50%,45%)]", // Light green
   },
   {
     id: "safeplan",
@@ -35,6 +36,7 @@ export const projects = [
       "Aligned stakeholders with development output",
     ],
     link: "https://github.com/samtjhia/SafePlan",
+    headerBg: "bg-[hsl(25,80%,45%)]", // Dark orange
   },
   {
     id: "igluva",
@@ -50,6 +52,7 @@ export const projects = [
       "Process design aligned with Ontario regulations",
     ],
     link: "https://igluva.ca",
+    headerBg: "bg-primary",
   },
 ];
 
@@ -69,7 +72,7 @@ const FeaturedProjects = () => {
             <AnimatedSection key={project.id} delay={index * 150} animation="fade-up">
               <div className="group bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-border flex flex-col h-full">
                 {/* Card Header */}
-                <div className="p-6 bg-primary">
+                <div className={`p-6 ${project.headerBg}`}>
                   <div className="flex items-start justify-between">
                     <div>
                       <h3 className="text-xl font-bold text-primary-foreground mb-1">
