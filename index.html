@@ -20,14 +20,11 @@
     <!-- GitHub Pages SPA redirect handler -->
     <script>
       (function() {
-        // Handle redirect from 404.html
-        const params = new URLSearchParams(window.location.search);
-        const redirectPath = params.get('p');
-        if (redirectPath) {
-          params.delete('p');
-          const newSearch = params.toString();
-          const newUrl = redirectPath + (newSearch ? '?' + newSearch : '') + window.location.hash;
-          history.replaceState(null, '', newUrl);
+        // Handle redirect from 404.html using sessionStorage
+        const redirectPath = sessionStorage.getItem('redirectPath');
+        if (redirectPath && redirectPath !== '/') {
+          sessionStorage.removeItem('redirectPath');
+          history.replaceState(null, '', redirectPath + window.location.search + window.location.hash);
         }
       })();
     </script>

@@ -4,22 +4,16 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    // Single Page App GitHub Pages redirect
-    // This script redirects all 404s to index.html for client-side routing
-    const segment = 1; // Number of path segments to keep (0 for username.github.io, 1 for project pages)
-    const path = window.location.pathname.split('/').slice(0, segment + 1).join('/');
-    const query = window.location.search;
-    const hash = window.location.hash;
+    // Single Page App GitHub Pages redirect for username.github.io
+    // Redirects all 404s to index.html for client-side routing
+    const pathSegmentsToKeep = 0; // 0 for username.github.io, 1 for project pages
     
-    // Redirect to root with the path encoded in query string
-    const redirectPath = window.location.pathname.slice(path.length);
-    if (redirectPath) {
-      window.location.replace(
-        path + '/?p=' + encodeURIComponent(redirectPath) + query + hash
-      );
-    } else {
-      window.location.replace(path + '/' + query + hash);
-    }
+    const location = window.location;
+    const path = location.pathname;
+    
+    // Redirect to root with path in sessionStorage
+    sessionStorage.setItem('redirectPath', path);
+    window.location.replace('/' + location.search + location.hash);
   </script>
 </head>
 <body>
