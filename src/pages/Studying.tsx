@@ -53,6 +53,7 @@ const experienceSections = [
     skills: ["Analytical Thinking", "Structured Problem Solving", "Decision-Making Under Pressure", "Presentation & Storytelling"],
     image: eclipseAward,
     imageAlt: "Eclipse Case Competition First Place Award",
+    imageRotate: "-90deg",
   },
   {
     id: "ambassador",
@@ -198,6 +199,7 @@ const Studying = () => {
                             src={section.image} 
                             alt={section.imageAlt}
                             className="w-full h-full object-cover min-h-[250px] lg:min-h-full"
+                            style={section.imageRotate ? { transform: `rotate(${section.imageRotate})` } : undefined}
                           />
                         </div>
                       )}
