@@ -1,73 +1,119 @@
-# Welcome to your Lovable project
+# Donat Ivliev — Personal Portfolio
 
-## Project info
+A modern, professional portfolio website showcasing product management, Agile delivery, and technical project leadership experience.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🔗 **Live Site:** [donat-ivliev.lovable.app](https://donat-ivliev.lovable.app)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## About
 
-**Use Lovable**
+This portfolio highlights my journey as a **Product/Project Management** candidate with a focus on:
+- **Product Thinking** — Discovery to delivery, translating ideas into actionable roadmaps
+- **Agile Execution** — Coordinating cross-functional teams to ship on time
+- **Technical Leadership** — Building and operating within complex organizations
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Currently pursuing a **BBA in Management & Information Technology** at the University of Toronto Scarborough (Class of 2028), targeting **Fintech TPM** opportunities.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- 🎨 **Modern Design** — Clean, minimalist UI with navy & white palette and electric blue accents
+- 📱 **Fully Responsive** — Optimized for desktop, tablet, and mobile devices
+- ⚡ **Fast Performance** — Built with Vite for lightning-fast load times
+- 🎭 **Smooth Animations** — Scroll-triggered entrance animations for a polished experience
+- 🌙 **Dark Mode Ready** — Design system supports light and dark themes
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+| Category | Technology |
+|----------|------------|
+| **Framework** | React 18 + TypeScript |
+| **Build Tool** | Vite |
+| **Styling** | Tailwind CSS |
+| **UI Components** | shadcn/ui + Radix UI |
+| **Routing** | React Router v6 |
+| **Icons** | Lucide React |
+| **Fonts** | Inter, Lora, Space Mono |
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Project Structure
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── assets/          # Images and static assets
+├── components/      # Reusable UI components
+│   ├── ui/          # shadcn/ui base components
+│   └── ...          # Custom components (Hero, Navbar, etc.)
+├── hooks/           # Custom React hooks
+├── pages/           # Route pages (Index, Portfolio, Contact, Studying)
+├── lib/             # Utility functions
+└── index.css        # Global styles and design tokens
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Pages
 
-**Use GitHub Codespaces**
+| Page | Description |
+|------|-------------|
+| **Home** | Hero section, What I Do, Operating System (current focus), Capabilities, Featured Projects, Contact CTA |
+| **Portfolio** | Detailed project showcase — Smaked, SafePlan, Igluva |
+| **Studying** | Academic experience at UTSC — leadership roles, case competitions, languages |
+| **Contact** | Contact information and social links |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## Featured Projects
 
-This project is built with:
+### 🍔 Smaked
+*Founder & Product Lead*  
+Mobile-first platform connecting local restaurants with consumers seeking affordable, healthy food.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 🛡️ SafePlan
+*Scrum Master*  
+Trauma-informed safety planning tool delivered through structured Agile processes.
 
-## How can I deploy this project?
+### 🏠 Igluva
+*Product & Business Analysis*  
+Streamlined rental platform addressing fragmented processes in Ontario's rental market.
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Local Development
 
-Yes, you can!
+```bash
+# Install dependencies
+npm install
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+# Start development server
+npm run dev
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+---
+
+## Contact
+
+- 📧 **Email:** [donat.ivliev@mail.utoronto.ca](mailto:donat.ivliev@mail.utoronto.ca)
+- 💼 **LinkedIn:** [linkedin.com/in/donat-ivliev](https://www.linkedin.com/in/donat-ivliev-17626728a/)
+- 📍 **Location:** Toronto, ON, Canada
+
+---
+
+## License
+
+This project is personal portfolio work. Feel free to use it as inspiration for your own portfolio.
+
+---
+
+*Built with [Lovable](https://lovable.dev) ✨*
