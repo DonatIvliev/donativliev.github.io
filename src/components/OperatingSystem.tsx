@@ -28,7 +28,7 @@ const operatingItems = [
   {
     icon: Target,
     label: "Target",
-    value: "Summer 2026 internships",
+    value: "FinTech TPM (Technical Project/Product Management)",
   },
 ];
 
