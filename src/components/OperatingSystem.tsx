@@ -43,25 +43,25 @@ const OperatingSystem = () => {
           <div className="w-16 h-1 bg-accent mx-auto rounded-full" />
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto items-stretch">
           {operatingItems.map((item, index) => {
             const CardContent = (
-              <div className="relative">
+              <div className="relative h-full">
                 {item.link && index === 0 && (
                   <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-accent animate-bounce">
                     <ChevronDown className="w-5 h-5" />
                   </div>
                 )}
-                <div className={`bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 border border-border h-full ${item.link ? 'cursor-pointer hover:border-accent/50' : ''}`}>
+                <div className={`bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 border border-border h-full min-h-[120px] flex flex-col ${item.link ? 'cursor-pointer hover:border-accent/50' : ''}`}>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-accent/10 rounded-md">
+                    <div className="p-2 bg-accent/10 rounded-md flex-shrink-0">
                       <item.icon className="w-5 h-5 text-accent" />
                     </div>
                     <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
                       {item.label}
                     </span>
                   </div>
-                  <p className="text-foreground font-medium text-sm leading-relaxed">
+                  <p className="text-foreground font-medium text-sm leading-relaxed flex-grow">
                     {item.value}
                   </p>
                 </div>
@@ -69,9 +69,9 @@ const OperatingSystem = () => {
             );
 
             return (
-              <AnimatedSection key={index} delay={index * 100} animation="scale">
+              <AnimatedSection key={index} delay={index * 100} animation="scale" className="h-full">
                 {item.link ? (
-                  <Link to={item.link}>{CardContent}</Link>
+                  <Link to={item.link} className="block h-full">{CardContent}</Link>
                 ) : (
                   CardContent
                 )}
