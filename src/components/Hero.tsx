@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, FileText, Calendar } from "lucide-react";
+import { ArrowDown, FileText, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import headshot from "@/assets/headshot.jpg";
 
@@ -65,13 +65,11 @@ const Hero = () => {
             
             <Button variant="navyGhost" size="xl" className="border border-primary-foreground/30" asChild>
               <a 
-                href="https://calendly.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="/contact"
                 className="flex items-center gap-2"
               >
-                <Calendar size={18} />
-                Book a Chat
+                <Mail size={18} />
+                Contact Me
               </a>
             </Button>
           </div>
