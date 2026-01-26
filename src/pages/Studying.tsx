@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Target, Trophy, Mic, ExternalLink } from "lucide-react";
+import { Users, Target, Trophy, Mic, Play } from "lucide-react";
 import eclipseAward from "@/assets/eclipse-award.png";
 import flipProgram from "@/assets/flip-program.png";
 
@@ -13,7 +13,6 @@ const experienceSections = [
     icon: Users,
     role: "Peer Mentor / Work-Study Student",
     organization: "First-Year Learning Integration Program (FLIP)",
-    problem: "First-year students face challenges navigating the academic and social transition to university life.",
     actions: [
       "Supported large cohorts of first-year students through their transition",
       "Coordinated onboarding and engagement initiatives across programs",
@@ -29,7 +28,6 @@ const experienceSections = [
     icon: Target,
     role: "Vice President, Internal Strategy",
     organization: "Management & Technology Association (MTA)",
-    problem: "Student organizations often lack operational structure, leading to inconsistent execution and member experience.",
     actions: [
       "Led internal strategy and operational execution",
       "Coordinated planning and cross-functional team operations",
@@ -43,7 +41,6 @@ const experienceSections = [
     icon: Trophy,
     role: "1st Place — Entrepreneurship Track",
     organization: "ECLIPSE Case Competition",
-    problem: "Business challenges require rapid analysis, creative solutions, and clear communication under time pressure.",
     actions: [
       "Analyzed complex problems within tight constraints",
       "Designed and justified innovative solutions",
@@ -54,20 +51,20 @@ const experienceSections = [
     image: eclipseAward,
     imageAlt: "Eclipse Case Competition First Place Award",
     imageRotate: "-90deg",
+    compactImage: true,
   },
   {
     id: "ambassador",
     icon: Mic,
     role: "Student Campus Ambassador & Peer Mentor",
     organization: "University of Toronto Scarborough",
-    problem: "Prospective students need authentic, informed guidance to understand the university experience.",
     actions: [
       "Acted as a primary point of contact for prospective students and families",
       "Communicated academic programs and campus experience clearly",
       "Represented UTSC in a professional and credible manner",
     ],
     skills: ["Public Communication", "Professional Presence", "Brand Representation", "Relationship Management"],
-    videoLink: "https://youtu.be/YL-m9jwxK2Q?si=S6JwX5aHAS-5jWfc",
+    youtubeId: "YL-m9jwxK2Q",
   },
 ];
 
@@ -152,11 +149,6 @@ const Studying = () => {
                         </h3>
                         
                         <div className="mb-6">
-                          <p className="text-sm font-medium text-muted-foreground mb-2">The Challenge</p>
-                          <p className="text-foreground/80">{section.problem}</p>
-                        </div>
-
-                        <div className="mb-6">
                           <p className="text-sm font-medium text-muted-foreground mb-3">What I Did</p>
                           <ul className="space-y-2">
                             {section.actions.map((action, i) => (
@@ -180,25 +172,38 @@ const Studying = () => {
                           ))}
                         </div>
 
-                        {section.videoLink && (
+                        {/* YouTube Embed */}
+                        {section.youtubeId && (
                           <a 
-                            href={section.videoLink}
+                            href={`https://www.youtube.com/watch?v=${section.youtubeId}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 mt-6 text-accent hover:text-accent/80 font-medium transition-colors"
+                            className="block mt-6 relative group overflow-hidden rounded-lg"
                           >
-                            Watch Video <ExternalLink className="w-4 h-4" />
+                            <img 
+                              src={`https://img.youtube.com/vi/${section.youtubeId}/maxresdefault.jpg`}
+                              alt="Watch video"
+                              className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-primary/40 flex items-center justify-center group-hover:bg-primary/50 transition-colors">
+                              <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-lg">
+                                <Play className="w-7 h-7 text-accent-foreground ml-1" fill="currentColor" />
+                              </div>
+                            </div>
                           </a>
                         )}
                       </div>
 
                       {/* Image */}
                       {section.image && (
-                        <div className="lg:col-span-2 bg-secondary">
+                        <div className={`${section.compactImage ? 'lg:col-span-2 flex items-center justify-center p-6' : 'lg:col-span-2'} bg-secondary`}>
                           <img 
                             src={section.image} 
                             alt={section.imageAlt}
-                            className="w-full h-full object-cover min-h-[250px] lg:min-h-full"
+                            className={section.compactImage 
+                              ? "max-h-[300px] w-auto object-contain" 
+                              : "w-full h-full object-cover min-h-[250px] lg:min-h-full"
+                            }
                             style={section.imageRotate ? { transform: `rotate(${section.imageRotate})` } : undefined}
                           />
                         </div>
