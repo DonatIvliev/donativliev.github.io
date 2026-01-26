@@ -19,6 +19,7 @@ const operatingItems = [
     icon: TrendingUp,
     label: "Learning",
     value: "Markets & investing frameworks",
+    externalLink: "https://link.blossomsocial.com/7uYa/q5zgvona",
   },
   {
     icon: Dumbbell,
@@ -52,7 +53,7 @@ const OperatingSystem = () => {
                     <ChevronDown className="w-5 h-5" />
                   </div>
                 )}
-                <div className={`bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 border border-border h-full min-h-[120px] flex flex-col ${item.link ? 'cursor-pointer hover:border-accent/50' : ''}`}>
+                <div className={`bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 border border-border h-full min-h-[120px] flex flex-col ${item.link || item.externalLink ? 'cursor-pointer hover:border-accent/50' : ''}`}>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 bg-accent/10 rounded-md flex-shrink-0">
                       <item.icon className="w-5 h-5 text-accent" />
@@ -72,6 +73,8 @@ const OperatingSystem = () => {
               <AnimatedSection key={index} delay={index * 100} animation="scale" className="h-full">
                 {item.link ? (
                   <Link to={item.link} className="block h-full">{CardContent}</Link>
+                ) : item.externalLink ? (
+                  <a href={item.externalLink} target="_blank" rel="noopener noreferrer" className="block h-full">{CardContent}</a>
                 ) : (
                   CardContent
                 )}
