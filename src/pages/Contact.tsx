@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Calendar, MapPin, GraduationCap } from "lucide-react";
+import { Mail, Linkedin, MapPin, GraduationCap } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -87,36 +87,7 @@ const Contact = () => {
                   <p className="text-muted-foreground text-sm">Class of 2028</p>
                 </div>
               </div>
-            </div>
-
-            {/* CTA Section */}
-            <div className="bg-primary rounded-2xl p-8 text-center">
-              <h2 className="text-2xl font-bold text-primary-foreground mb-3">
-                Ready to Chat?
-              </h2>
-              <p className="text-primary-foreground/70 mb-6">
-                Let's schedule a conversation about potential opportunities.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button variant="accent" size="lg" asChild>
-                  <a
-                    href="https://calendly.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <Calendar size={18} />
-                    Book a Chat
-                  </a>
-                </Button>
-                <Button variant="navyGhost" size="lg" className="border border-primary-foreground/30" asChild>
-                  <a href="mailto:donat.ivliev@mail.utoronto.ca" className="flex items-center gap-2">
-                    <Mail size={18} />
-                    Send Email
-                  </a>
-                </Button>
-              </div>
-            </div>
+          </div>
           </div>
         </div>
       </section>
