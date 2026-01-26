@@ -13,6 +13,7 @@ const operatingItems = [
     icon: Rocket,
     label: "Building",
     value: "Smaked (product + operations)",
+    link: "/portfolio",
   },
   {
     icon: TrendingUp,
