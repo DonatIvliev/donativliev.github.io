@@ -1,8 +1,10 @@
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
+
 const WhatIDo = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center">
+        <AnimatedSection className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             What I Do
           </h2>
@@ -14,7 +16,7 @@ const WhatIDo = () => {
             problems with measurable impact—translating ideas into actionable roadmaps and 
             coordinating cross-functional teams to ship on time.
           </p>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
