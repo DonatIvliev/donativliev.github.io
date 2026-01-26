@@ -49,7 +49,7 @@ const Portfolio = () => {
               >
                 <div className="bg-card rounded-2xl overflow-hidden shadow-md border border-border">
                   {/* Project Header */}
-                  <div className="p-8 bg-primary">
+                  <div className={`p-8 ${project.headerBg}`}>
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div>
                         <span className="text-primary-foreground/60 text-sm font-medium mb-2 block">
