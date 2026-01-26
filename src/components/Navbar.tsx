@@ -10,7 +10,6 @@ const Navbar = () => {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/portfolio", label: "Portfolio" },
-    { href: "/contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -45,7 +44,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Button variant="hero" size="sm" asChild>
-              <a href="mailto:donat.ivliev@mail.utoronto.ca">Get in Touch</a>
+              <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
 
@@ -78,7 +77,7 @@ const Navbar = () => {
                 </Link>
               ))}
               <Button variant="hero" size="sm" asChild className="w-fit">
-                <a href="mailto:donat.ivliev@mail.utoronto.ca">Get in Touch</a>
+                <Link to="/contact">Get in Touch</Link>
               </Button>
             </div>
           </div>
