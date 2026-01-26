@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, ArrowRight } from "lucide-react";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
 
 const ContactCTA = () => {
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center">
+        <AnimatedSection className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Let's Connect
           </h2>
@@ -34,7 +35,7 @@ const ContactCTA = () => {
               </a>
             </Button>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
