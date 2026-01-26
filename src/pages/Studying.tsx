@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Users, Target, Trophy, Mic, Play } from "lucide-react";
 import eclipseAward from "@/assets/eclipse-award.png";
 import flipProgram from "@/assets/flip-program.png";
+import mtaClub from "@/assets/mta-club.png";
 
 const experienceSections = [
   {
@@ -35,6 +36,8 @@ const experienceSections = [
       "Supported delivery of events, initiatives, and competitions",
     ],
     skills: ["Leadership", "Strategic Planning", "Team Coordination", "Process Improvement", "Ownership & Accountability"],
+    image: mtaClub,
+    imageAlt: "MTA Club team photo",
   },
   {
     id: "case-competitions",
@@ -50,8 +53,6 @@ const experienceSections = [
     skills: ["Analytical Thinking", "Structured Problem Solving", "Decision-Making Under Pressure", "Presentation & Storytelling"],
     image: eclipseAward,
     imageAlt: "Eclipse Case Competition First Place Award",
-    imageRotate: "-90deg",
-    compactImage: true,
   },
   {
     id: "ambassador",
@@ -178,16 +179,16 @@ const Studying = () => {
                             href={`https://www.youtube.com/watch?v=${section.youtubeId}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block mt-6 relative group overflow-hidden rounded-lg"
+                            className="block mt-6 relative group overflow-hidden rounded-lg aspect-video max-w-md"
                           >
                             <img 
                               src={`https://img.youtube.com/vi/${section.youtubeId}/maxresdefault.jpg`}
                               alt="Watch video"
-                              className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-primary/40 flex items-center justify-center group-hover:bg-primary/50 transition-colors">
-                              <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center shadow-lg">
-                                <Play className="w-7 h-7 text-accent-foreground ml-1" fill="currentColor" />
+                              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center shadow-lg">
+                                <Play className="w-6 h-6 text-accent-foreground ml-1" fill="currentColor" />
                               </div>
                             </div>
                           </a>
@@ -196,15 +197,11 @@ const Studying = () => {
 
                       {/* Image */}
                       {section.image && (
-                        <div className={`${section.compactImage ? 'lg:col-span-2 flex items-center justify-center p-6' : 'lg:col-span-2'} bg-secondary`}>
+                        <div className="lg:col-span-2 bg-secondary">
                           <img 
                             src={section.image} 
                             alt={section.imageAlt}
-                            className={section.compactImage 
-                              ? "max-h-[300px] w-auto object-contain" 
-                              : "w-full h-full object-cover min-h-[250px] lg:min-h-full"
-                            }
-                            style={section.imageRotate ? { transform: `rotate(${section.imageRotate})` } : undefined}
+                            className="w-full h-full object-cover min-h-[250px] lg:min-h-full"
                           />
                         </div>
                       )}
