@@ -1,4 +1,4 @@
-import { GraduationCap, Rocket, TrendingUp, Dumbbell, Target } from "lucide-react";
+import { GraduationCap, Rocket, TrendingUp, Dumbbell, Target, ChevronDown } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 
@@ -46,18 +46,25 @@ const OperatingSystem = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
           {operatingItems.map((item, index) => {
             const CardContent = (
-              <div className={`bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 border border-border h-full ${item.link ? 'cursor-pointer hover:border-accent/50' : ''}`}>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-accent/10 rounded-md">
-                    <item.icon className="w-5 h-5 text-accent" />
+              <div className="relative">
+                {item.link && index === 0 && (
+                  <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-accent animate-bounce">
+                    <ChevronDown className="w-5 h-5" />
                   </div>
-                  <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-                    {item.label}
-                  </span>
+                )}
+                <div className={`bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 border border-border h-full ${item.link ? 'cursor-pointer hover:border-accent/50' : ''}`}>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-accent/10 rounded-md">
+                      <item.icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <span className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                      {item.label}
+                    </span>
+                  </div>
+                  <p className="text-foreground font-medium text-sm leading-relaxed">
+                    {item.value}
+                  </p>
                 </div>
-                <p className="text-foreground font-medium text-sm leading-relaxed">
-                  {item.value}
-                </p>
               </div>
             );
 
