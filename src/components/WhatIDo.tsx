@@ -10,7 +10,7 @@ const WhatIDo = () => {
           </h2>
           <div className="w-16 h-1 bg-accent mx-auto mb-8 rounded-full" />
           <p className="text-lg text-muted-foreground leading-relaxed">
-            From discovery to delivery, I focus on solving real problems with measurable impact, by translating ideas into actionable roadmaps and coordinating cross-functional teams to ship on time.
+            From <span className="text-foreground font-medium">discovery to delivery</span>, I focus on solving real problems with measurable impact, by translating ideas into actionable roadmaps and coordinating <span className="text-foreground font-medium">cross-functional teams</span> to ship on time.
           </p>
         </AnimatedSection>
       </div>
