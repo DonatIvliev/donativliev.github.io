@@ -89,12 +89,9 @@ const Studying = () => {
             <p className="text-accent font-medium mb-4 tracking-wide uppercase text-sm">
               Academic Experience
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
               Studying @ University of Toronto Scarborough
             </h1>
-            <p className="text-xl text-primary-foreground/80 mb-8">
-              Academic leadership, execution, and applied learning beyond the classroom
-            </p>
             <div className="flex flex-wrap gap-4 mb-8">
               <Badge variant="secondary" className="text-sm px-4 py-2">
                 BBA (Management & IT)
@@ -103,10 +100,8 @@ const Studying = () => {
                 Class of 2028
               </Badge>
             </div>
-            <p className="text-primary-foreground/70 max-w-2xl leading-relaxed">
-              I treat university as a live operating environment — leading, coordinating, and delivering real outcomes. 
-              Every role I take on is an opportunity to build leadership skills, execute at a high level, and create 
-              meaningful impact for the communities I serve.
+            <p className="text-primary-foreground/80 max-w-2xl leading-relaxed text-lg">
+              I treat university as a live operating environment, where every role I take on is an opportunity to build leadership skills, execute at a high level, and create meaningful impact for the communities I serve.
             </p>
           </AnimatedSection>
         </div>
