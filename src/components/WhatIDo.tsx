@@ -10,11 +10,7 @@ const WhatIDo = () => {
           </h2>
           <div className="w-16 h-1 bg-accent mx-auto mb-8 rounded-full" />
           <p className="text-lg text-muted-foreground leading-relaxed">
-            I bring <span className="text-foreground font-medium">product thinking</span> and{" "}
-            <span className="text-foreground font-medium">Agile execution</span> together to 
-            deliver structured outcomes. From discovery to delivery, I focus on solving real 
-            problems with measurable impact—translating ideas into actionable roadmaps and 
-            coordinating cross-functional teams to ship on time.
+            From discovery to delivery, I focus on solving real problems with measurable impact, by translating ideas into actionable roadmaps and coordinating cross-functional teams to ship on time.
           </p>
         </AnimatedSection>
       </div>
