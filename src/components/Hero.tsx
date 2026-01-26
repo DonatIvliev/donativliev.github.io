@@ -64,13 +64,10 @@ const Hero = () => {
             </Button>
             
             <Button variant="navyGhost" size="xl" className="border border-primary-foreground/30" asChild>
-              <a 
-                href="/contact"
-                className="flex items-center gap-2"
-              >
+              <Link to="/contact" className="flex items-center gap-2">
                 <Mail size={18} />
                 Contact Me
-              </a>
+              </Link>
             </Button>
           </div>
 
