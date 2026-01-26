@@ -1,11 +1,13 @@
 import { GraduationCap, Rocket, TrendingUp, Dumbbell, Target } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
 
 const operatingItems = [
   {
     icon: GraduationCap,
     label: "Studying",
     value: "UTSC BBA (Management & IT), 2028",
+    link: "/studying",
   },
   {
     icon: Rocket,
@@ -41,9 +43,9 @@ const OperatingSystem = () => {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
-          {operatingItems.map((item, index) => (
-            <AnimatedSection key={index} delay={index * 100} animation="scale">
-              <div className="bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200 border border-border h-full">
+          {operatingItems.map((item, index) => {
+            const CardContent = (
+              <div className={`bg-card rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 border border-border h-full ${item.link ? 'cursor-pointer hover:border-accent/50' : ''}`}>
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-accent/10 rounded-md">
                     <item.icon className="w-5 h-5 text-accent" />
@@ -56,8 +58,18 @@ const OperatingSystem = () => {
                   {item.value}
                 </p>
               </div>
-            </AnimatedSection>
-          ))}
+            );
+
+            return (
+              <AnimatedSection key={index} delay={index * 100} animation="scale">
+                {item.link ? (
+                  <Link to={item.link}>{CardContent}</Link>
+                ) : (
+                  CardContent
+                )}
+              </AnimatedSection>
+            );
+          })}
         </div>
       </div>
     </section>
