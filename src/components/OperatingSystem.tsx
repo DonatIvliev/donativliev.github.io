@@ -6,7 +6,7 @@ const operatingItems = [
   {
     icon: GraduationCap,
     label: "Studying",
-    value: "UTSC BBA (Management & IT), 2028",
+    value: "BBA (Management & IT)",
     link: "/studying",
   },
   {
@@ -28,7 +28,7 @@ const operatingItems = [
   {
     icon: Target,
     label: "Target",
-    value: "FinTech TPM (Technical Project/Product Management)",
+    value: "Fintech TPM",
   },
 ];
 
