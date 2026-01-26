@@ -52,9 +52,6 @@ const Portfolio = () => {
                   <div className={`p-8 ${project.headerBg}`}>
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                       <div>
-                        <span className="text-primary-foreground/60 text-sm font-medium mb-2 block">
-                          Project {String(index + 1).padStart(2, '0')}
-                        </span>
                         <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground">
                           {project.title}
                         </h2>
