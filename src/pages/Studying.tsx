@@ -7,6 +7,7 @@ import { Users, Target, Trophy, Mic, Play } from "lucide-react";
 import eclipseAward from "@/assets/eclipse-award.png";
 import flipProgram from "@/assets/flip-program.png";
 import mtaClub from "@/assets/mta-club.png";
+import duolingoProfile from "@/assets/duolingo-profile.png";
 
 const experienceSections = [
   {
@@ -70,10 +71,10 @@ const experienceSections = [
 ];
 
 const languages = [
-  { name: "English", level: "Native" },
-  { name: "French", level: "Professional" },
-  { name: "Mandarin", level: "Conversational" },
-  { name: "Ukrainian", level: "Native" },
+  { name: "Ukrainian", flag: "🇺🇦", level: "Native" },
+  { name: "English", flag: "🇬🇧", level: "Fluent" },
+  { name: "French", flag: "🇫🇷", level: "Intermediate" },
+  { name: "Mandarin", flag: "🇨🇳", level: "Intermediate" },
 ];
 
 const Studying = () => {
@@ -217,7 +218,7 @@ const Studying = () => {
       {/* Languages Section */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-6">
-          <AnimatedSection className="max-w-4xl mx-auto">
+          <AnimatedSection className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Communication & Languages
@@ -230,15 +231,48 @@ const Studying = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4">
-              {languages.map((lang, index) => (
-                <AnimatedSection key={lang.name} delay={index * 100} animation="scale">
-                  <div className="bg-card border border-border rounded-xl px-8 py-6 text-center hover:shadow-md transition-shadow duration-200">
-                    <p className="text-xl font-semibold text-foreground mb-1">{lang.name}</p>
-                    <p className="text-sm text-muted-foreground">{lang.level}</p>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              {/* Languages */}
+              <div className="space-y-4">
+                <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                  {languages.map((lang, index) => (
+                    <AnimatedSection key={lang.name} delay={index * 100} animation="scale">
+                      <div className="bg-card border border-border rounded-xl px-6 py-4 text-center hover:shadow-md transition-shadow duration-200">
+                        <p className="text-2xl mb-1">{lang.flag}</p>
+                        <p className="text-lg font-semibold text-foreground">{lang.name}</p>
+                        <p className="text-sm text-muted-foreground">{lang.level}</p>
+                      </div>
+                    </AnimatedSection>
+                  ))}
+                </div>
+                <AnimatedSection delay={400} animation="fade-up">
+                  <div className="flex items-center justify-center md:justify-start gap-2 mt-6">
+                    <span className="text-2xl">🔥</span>
+                    <p className="text-foreground font-medium">
+                      800+ day Duolingo streak
+                    </p>
                   </div>
                 </AnimatedSection>
-              ))}
+              </div>
+
+              {/* Duolingo Profile Card */}
+              <AnimatedSection delay={200} animation="slide-right">
+                <a 
+                  href="https://www.duolingo.com/profile/DonatIvlie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mx-auto max-w-[280px] hover:scale-105 transition-transform duration-300"
+                >
+                  <img 
+                    src={duolingoProfile} 
+                    alt="Add me on Duolingo - @DonatIvlie" 
+                    className="w-full rounded-xl shadow-lg"
+                  />
+                  <p className="text-center text-sm text-muted-foreground mt-3">
+                    Scan to add me on Duolingo!
+                  </p>
+                </a>
+              </AnimatedSection>
             </div>
           </AnimatedSection>
         </div>
