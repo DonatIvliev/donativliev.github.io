@@ -1,123 +1,115 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/data/site";
 
-export const projects = [
-  {
-    id: "smaked",
-    title: "Smaked",
-    role: "Founder & Product Lead",
-    shortDescription:
-      "Mobile-first platform connecting local restaurants with consumers seeking affordable, healthy food—bypassing expensive delivery platforms.",
-    problem:
-      "Local restaurants and consumers lacked affordable, convenient access to healthy, high-quality food without relying on expensive delivery platforms.",
-    impact: [
-      "Led discovery → MVP delivery",
-      "Built mobile-first product experience",
-      "Conducted market and financial analysis",
-      "Owned execution across product and operations",
-    ],
-    link: "https://smaked.com",
-    headerBg: "bg-[hsl(142,50%,45%)]", // Light green
-  },
-  {
-    id: "safeplan",
-    title: "SafePlan",
-    role: "Scrum Master",
-    shortDescription:
-      "Trauma-informed safety planning tool for individuals in unsafe situations, delivered through structured Agile processes.",
-    problem:
-      "Individuals in unsafe or abusive situations lacked accessible, trauma-informed tools to plan and manage personal safety.",
-    impact: [
-      "Coordinated Agile delivery",
-      "Managed backlog, epics, and sprint execution",
-      "Facilitated planning, reviews, and retrospectives",
-      "Aligned stakeholders with development output",
-    ],
-    link: "https://github.com/samtjhia/SafePlan",
-    headerBg: "bg-[hsl(25,80%,45%)]", // Dark orange
-  },
-  {
-    id: "igluva",
-    title: "Igluva",
-    role: "Product & Business Analysis",
-    shortDescription:
-      "Streamlined rental platform addressing fragmented processes and weak screening in Ontario's rental market.",
-    problem:
-      "Renters and landlords faced inefficient, fragmented rental processes with weak screening and poor regulatory alignment in Ontario.",
-    impact: [
-      "Market research and requirements analysis",
-      "Feasibility evaluation",
-      "Process design aligned with Ontario regulations",
-    ],
-    link: "https://igluva.ca",
-    headerBg: "bg-primary",
-  },
-];
+const accentBg: Record<string, string> = {
+  navy: "bg-primary",
+  blue: "bg-accent",
+  deep: "bg-navy-deep",
+  pro: "bg-navy-pro",
+};
 
 const FeaturedProjects = () => {
+  // Home: Smaked (dominant) + SafePlan + Igluva + Bridge
+  const list = projects.filter((p) => ["smaked", "safeplan", "igluva", "bridge"].includes(p.id));
+  const smaked = list.find((p) => p.id === "smaked")!;
+  const rest = list.filter((p) => p.id !== "smaked");
+
   return (
-    <section className="py-20 bg-secondary">
-      <div className="container mx-auto px-6">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
-          </h2>
-          <div className="w-16 h-1 bg-accent mx-auto rounded-full" />
+    <section className="py-20 md:py-24 bg-background" aria-labelledby="featured-heading">
+      <div className="container mx-auto px-6 max-w-screen-content">
+        <AnimatedSection className="mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">Featured Work</p>
+            <h2 id="featured-heading" className="text-3xl md:text-4xl font-bold text-foreground">
+              Selected work showing product thinking, Agile delivery, emerging technology, and execution.
+            </h2>
+          </div>
+          <Button variant="outline" size="sm" asChild>
+            <Link to="/portfolio" className="flex items-center gap-1.5">All projects <ArrowRight size={14} /></Link>
+          </Button>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
-            <AnimatedSection key={project.id} delay={index * 150} animation="fade-up">
-              <div className="group bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-border flex flex-col h-full">
-                {/* Card Header */}
-                <div className={`p-6 ${project.headerBg}`}>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold text-primary-foreground mb-1">
-                        {project.title}
-                      </h3>
-                      <p className="text-primary-foreground/70 text-sm">
-                        {project.role}
-                      </p>
-                    </div>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4 text-primary-foreground" />
-                    </a>
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
-                    {project.shortDescription}
-                  </p>
-                  <Button variant="outline" size="sm" className="w-full group" asChild>
-                    <Link to={`/portfolio#${project.id}`}>
-                      Read more
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+        {/* Smaked dominant */}
+        <AnimatedSection animation="fade-up">
+          <article className="bg-card border border-border rounded-2xl overflow-hidden shadow-md grid lg:grid-cols-[1.2fr_1fr] mb-6 group hover:shadow-xl transition-shadow">
+            <div className={`${accentBg[smaked.accent]} text-primary-foreground p-8 md:p-10 relative overflow-hidden`}>
+              <div
+                className="absolute inset-0 opacity-10"
+                style={{
+                  backgroundImage: "radial-gradient(circle at 1px 1px, hsl(0 0% 100% / 0.5) 1px, transparent 0)",
+                  backgroundSize: "24px 24px",
+                }}
+              />
+              <div className="relative">
+                {smaked.badge && (
+                  <span className="inline-block px-2.5 py-1 rounded-md bg-accent text-accent-foreground text-[11px] font-bold uppercase tracking-wider mb-4">
+                    {smaked.badge}
+                  </span>
+                )}
+                <p className="text-xs uppercase tracking-wider text-primary-foreground/60 font-semibold mb-2">{smaked.category}</p>
+                <h3 className="text-3xl md:text-4xl font-bold mb-2">{smaked.title}</h3>
+                <p className="text-primary-foreground/80 text-sm mb-4">{smaked.role}</p>
+                <p className="text-base md:text-lg text-primary-foreground/85 leading-relaxed mb-6">{smaked.headline}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {smaked.tags.slice(0, 5).map((t) => (
+                    <span key={t} className="px-2 py-0.5 rounded bg-primary-foreground/10 border border-primary-foreground/15 text-[11px] font-medium">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
+            </div>
+            <div className="p-8 md:p-10 flex flex-col">
+              <p className="text-[11px] uppercase tracking-wider font-semibold text-accent mb-2">Problem</p>
+              <p className="text-sm text-foreground/85 leading-relaxed mb-5">{smaked.problem}</p>
+              <p className="text-[11px] uppercase tracking-wider font-semibold text-accent mb-2">What I did</p>
+              <ul className="space-y-2 mb-6 flex-1">
+                {smaked.did.slice(0, 3).map((d) => (
+                  <li key={d} className="flex gap-2.5 text-sm text-foreground/80 leading-snug">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button variant="hero" size="sm" asChild className="w-fit">
+                <Link to={`/portfolio#${smaked.id}`} className="flex items-center gap-1.5">View case study <ArrowRight size={14} /></Link>
+              </Button>
+            </div>
+          </article>
+        </AnimatedSection>
+
+        {/* Three secondary */}
+        <div className="grid md:grid-cols-3 gap-5">
+          {rest.map((p, i) => (
+            <AnimatedSection key={p.id} delay={i * 100} animation="fade-up">
+              <article className="bg-card border border-border rounded-2xl overflow-hidden h-full flex flex-col hover:shadow-lg hover:border-accent/30 transition-all">
+                <div className={`${accentBg[p.accent]} text-primary-foreground p-5 relative`}>
+                  {p.badge && (
+                    <span className="inline-block px-2 py-0.5 rounded bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-wider mb-3">
+                      {p.badge}
+                    </span>
+                  )}
+                  <h3 className="text-lg font-bold leading-tight">{p.title}</h3>
+                  <p className="text-xs text-primary-foreground/70 mt-1">{p.role}</p>
+                </div>
+                <div className="p-5 flex flex-col flex-1">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{p.headline}</p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    {p.tags.slice(0, 3).map((t) => (
+                      <span key={t} className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-secondary text-secondary-foreground">{t}</span>
+                    ))}
+                  </div>
+                  <Link to={`/portfolio#${p.id}`} className="text-accent text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
+                    Read more <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </article>
             </AnimatedSection>
           ))}
         </div>
-
-        <AnimatedSection className="text-center mt-10" delay={450}>
-          <Button variant="hero" size="lg" asChild>
-            <Link to="/portfolio">
-              View All Projects
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Link>
-          </Button>
-        </AnimatedSection>
       </div>
     </section>
   );

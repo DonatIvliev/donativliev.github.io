@@ -1,112 +1,132 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { projects } from "@/components/FeaturedProjects";
-import { ExternalLink, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { AnimatedSection } from "@/hooks/useScrollAnimation";
+import { projects, portfolioFilters } from "@/data/site";
+import { ExternalLink } from "lucide-react";
 
 const Portfolio = () => {
   const location = useLocation();
+  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
     if (location.hash) {
-      const element = document.getElementById(location.hash.slice(1));
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 100);
-      }
+      const el = document.getElementById(location.hash.slice(1));
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
     }
   }, [location]);
 
+  const visible = useMemo(
+    () => (filter === "all" ? projects : projects.filter((p) => p.filters.includes(filter))),
+    [filter]
+  );
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-primary">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
-            Portfolio
-          </h1>
-          <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
-            A selection of projects where I've led product thinking, Agile delivery, 
-            and strategic analysis to solve real problems.
-          </p>
-        </div>
-      </section>
+      <main>
+        <section className="pt-32 pb-12 bg-gradient-navy text-primary-foreground relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-glow opacity-60" />
+          <div className="container mx-auto px-6 max-w-screen-content relative">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">Portfolio</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 max-w-3xl leading-tight">
+              Product, business analysis, Agile delivery, emerging technology, and execution work.
+            </h1>
+            <p className="text-primary-foreground/75 max-w-2xl leading-relaxed">
+              Selected case studies — from concept and product strategy to Agile delivery, business analysis, and financial dashboarding.
+            </p>
+          </div>
+        </section>
 
-      {/* Projects Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-16">
-            {projects.map((project, index) => (
-              <article
-                key={project.id}
-                id={project.id}
-                className="scroll-mt-24"
-              >
-                <div className="bg-card rounded-2xl overflow-hidden shadow-md border border-border">
-                  {/* Project Header */}
-                  <div className={`p-8 ${project.headerBg}`}>
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        {/* Filters */}
+        <section className="sticky top-16 z-30 bg-background/85 backdrop-blur border-b border-border">
+          <div className="container mx-auto px-6 max-w-screen-content py-3 overflow-x-auto">
+            <div className="flex gap-2 min-w-max">
+              {portfolioFilters.map((f) => (
+                <button
+                  key={f.id}
+                  onClick={() => setFilter(f.id)}
+                  className={`text-sm font-medium px-3.5 py-1.5 rounded-md transition-all ${
+                    filter === f.id
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-secondary-foreground hover:bg-secondary/70"
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section className="py-16">
+          <div className="container mx-auto px-6 max-w-screen-content space-y-8">
+            {visible.map((p, i) => (
+              <AnimatedSection key={p.id} delay={i * 60} animation="fade-up">
+                <article id={p.id} className="scroll-mt-32 bg-card border border-border rounded-2xl overflow-hidden shadow-sm">
+                  <header className={`${p.accent === "blue" ? "bg-accent" : p.accent === "deep" ? "bg-navy-deep" : p.accent === "pro" ? "bg-navy-pro" : "bg-primary"} text-primary-foreground p-6 md:p-8`}>
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground">
-                          {project.title}
-                        </h2>
-                        <p className="text-primary-foreground/80 mt-1">
-                          {project.role}
-                        </p>
+                        {p.badge && (
+                          <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mb-3 ${p.badge === "1st Place" ? "bg-award text-navy-deep" : "bg-accent text-accent-foreground"}`}>
+                            {p.badge}
+                          </span>
+                        )}
+                        <p className="text-xs uppercase tracking-wider text-primary-foreground/60 font-semibold mb-1.5">{p.category}</p>
+                        <h2 className="text-2xl md:text-3xl font-bold leading-tight">{p.title}</h2>
+                        <p className="text-sm text-primary-foreground/75 mt-1">{p.role}{p.status && ` · ${p.status}`}</p>
                       </div>
-                      <Button variant="navyGhost" size="sm" className="border border-primary-foreground/30 w-fit" asChild>
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          <ExternalLink size={16} />
-                          Visit Project
+                      {p.link && (
+                        <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-primary-foreground/10 border border-primary-foreground/20 text-xs font-medium hover:bg-primary-foreground/20 transition-colors w-fit">
+                          <ExternalLink size={14} /> Visit
                         </a>
-                      </Button>
+                      )}
                     </div>
-                  </div>
+                  </header>
 
-                  {/* Project Content */}
-                  <div className="p-8 space-y-6">
-                    {/* Problem */}
+                  <div className="p-6 md:p-8 grid md:grid-cols-2 gap-8">
                     <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">
-                        Problem Solved
-                      </h3>
-                      <p className="text-foreground leading-relaxed">
-                        {project.problem}
-                      </p>
+                      <p className="text-[11px] uppercase tracking-wider font-semibold text-accent mb-2">Headline</p>
+                      <p className="text-base font-medium text-foreground mb-5 leading-snug">{p.headline}</p>
+
+                      <p className="text-[11px] uppercase tracking-wider font-semibold text-accent mb-2">Problem</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-5">{p.problem}</p>
+
+                      <p className="text-[11px] uppercase tracking-wider font-semibold text-accent mb-2">Tools & Methods</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {p.tools.map((t) => (
+                          <span key={t} className="text-[11px] font-medium px-2 py-0.5 rounded bg-secondary text-secondary-foreground border border-border">{t}</span>
+                        ))}
+                      </div>
                     </div>
 
-                    {/* Role & Impact */}
                     <div>
-                      <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">
-                        Role & Contribution
-                      </h3>
-                      <ul className="space-y-2">
-                        {project.impact.map((item, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                            <span className="text-foreground">{item}</span>
+                      <p className="text-[11px] uppercase tracking-wider font-semibold text-accent mb-2">What I did</p>
+                      <ul className="space-y-2.5 mb-5">
+                        {p.did.map((d) => (
+                          <li key={d} className="flex gap-3 text-sm text-foreground/85 leading-relaxed">
+                            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                            <span>{d}</span>
                           </li>
                         ))}
                       </ul>
+
+                      <p className="text-[11px] uppercase tracking-wider font-semibold text-accent mb-2">Tags</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {p.tags.map((t) => (
+                          <span key={t} className="text-[11px] font-medium px-2 py-0.5 rounded bg-accent/10 text-accent">{t}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </AnimatedSection>
             ))}
           </div>
-        </div>
-      </section>
-
+        </section>
+      </main>
       <Footer />
     </div>
   );
