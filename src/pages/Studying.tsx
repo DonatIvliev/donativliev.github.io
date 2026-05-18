@@ -2,277 +2,247 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { Users, Target, Trophy, Mic, Play } from "lucide-react";
+import { Cpu, Users, Briefcase, Trophy, BookOpen, Sparkles } from "lucide-react";
 import eclipseAward from "@/assets/eclipse-award.png";
 import flipProgram from "@/assets/flip-program.png";
 import mtaClub from "@/assets/mta-club.png";
-import duolingoProfile from "@/assets/duolingo-profile.png";
-
-const experienceSections = [
-  {
-    id: "flip",
-    icon: Users,
-    role: "Peer Mentor / Work-Study Student",
-    organization: "First-Year Learning Integration Program (FLIP)",
-    actions: [
-      "Supported large cohorts of first-year students through their transition",
-      "Coordinated onboarding and engagement initiatives across programs",
-      "Acted as a bridge between students and administration",
-      "Improved participation and adoption of campus programs",
-    ],
-    skills: ["Mentorship", "Program Coordination", "Communication at Scale", "Stakeholder Support", "Structured Execution"],
-    image: flipProgram,
-    imageAlt: "FLIP Program booth at UTSC",
-  },
-  {
-    id: "mta",
-    icon: Target,
-    role: "Vice President, Internal Strategy",
-    organization: "Management & Technology Association (MTA)",
-    actions: [
-      "Led internal strategy and operational execution",
-      "Coordinated planning and cross-functional team operations",
-      "Improved structure, communication, and accountability",
-      "Supported delivery of events, initiatives, and competitions",
-    ],
-    skills: ["Leadership", "Strategic Planning", "Team Coordination", "Process Improvement", "Ownership & Accountability"],
-    image: mtaClub,
-    imageAlt: "MTA Club team photo",
-  },
-  {
-    id: "case-competitions",
-    icon: Trophy,
-    role: "1st Place — Entrepreneurship Track",
-    organization: "ECLIPSE Case Competition",
-    actions: [
-      "Analyzed complex problems within tight constraints",
-      "Designed and justified innovative solutions",
-      "Communicated ideas clearly to a panel of judges",
-      "Collaborated with team members under pressure",
-    ],
-    skills: ["Analytical Thinking", "Structured Problem Solving", "Decision-Making Under Pressure", "Presentation & Storytelling"],
-    image: eclipseAward,
-    imageAlt: "Eclipse Case Competition First Place Award",
-  },
-  {
-    id: "ambassador",
-    icon: Mic,
-    role: "Student Campus Ambassador & Peer Mentor",
-    organization: "University of Toronto Scarborough",
-    actions: [
-      "Acted as a primary point of contact for prospective students and families",
-      "Communicated academic programs and campus experience clearly",
-      "Represented UTSC in a professional and credible manner",
-    ],
-    skills: ["Public Communication", "Professional Presence", "Brand Representation", "Relationship Management"],
-    youtubeId: "YL-m9jwxK2Q",
-  },
-];
-
-const languages = [
-  { name: "Ukrainian", flag: "🇺🇦", level: "Native" },
-  { name: "English", flag: "🇬🇧", level: "Fluent" },
-  { name: "French", flag: "🇫🇷", level: "Intermediate" },
-  { name: "Mandarin", flag: "🇨🇳", level: "Intermediate" },
-];
 
 const Studying = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-primary">
-        <div className="container mx-auto px-6">
-          <AnimatedSection className="max-w-4xl">
-            <p className="text-accent font-medium mb-4 tracking-wide uppercase text-sm">
-              Academic Experience
-            </p>
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
-              Studying @ University of Toronto Scarborough
+      <main>
+        {/* Hero */}
+        <section className="pt-32 pb-14 bg-gradient-navy text-primary-foreground relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-glow opacity-60" />
+          <div className="container mx-auto px-6 max-w-screen-content relative">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">Studying, Leadership & Execution</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 max-w-3xl leading-tight">
+              University as a live operating environment for coordination, leadership, communication, and execution.
             </h1>
-            <div className="flex flex-wrap gap-4 mb-8">
-              <Badge variant="secondary" className="text-sm px-4 py-2">
-                BBA (Management & IT)
-              </Badge>
-              <Badge variant="secondary" className="text-sm px-4 py-2">
-                Class of 2028
-              </Badge>
+            <p className="text-primary-foreground/75 max-w-2xl leading-relaxed mb-8">
+              BBA Management & IT @ University of Toronto Scarborough · Emerging Technology Assistant at The BRIDGE.
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Emerging Technology Assistant @ The BRIDGE",
+                "1st Place — ECLIPSE 2026",
+                "20+ initiatives",
+                "200+ students",
+                "100+ applicants",
+                "$5K+ tracking",
+                "20+ presentations",
+              ].map((t) => (
+                <span key={t} className="text-xs font-medium px-3 py-1.5 rounded-full bg-primary-foreground/10 border border-primary-foreground/15 backdrop-blur-sm">
+                  {t}
+                </span>
+              ))}
             </div>
-            <p className="text-primary-foreground/80 max-w-2xl leading-relaxed text-lg">
-              I treat university as a live operating environment, where every role I take on is an opportunity to build leadership skills, execute at a high level, and create meaningful impact for the communities I serve.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Experience Sections */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Leadership & Execution
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              How I operate inside complex organizations — taking ownership, building structure, and delivering results.
-            </p>
-            <div className="w-16 h-1 bg-accent mx-auto rounded-full mt-6" />
-          </AnimatedSection>
-
-          <div className="space-y-12 max-w-5xl mx-auto">
-            {experienceSections.map((section, index) => (
-              <AnimatedSection 
-                key={section.id} 
-                delay={index * 100}
-                animation={index % 2 === 0 ? "slide-left" : "slide-right"}
-              >
-                <Card className="overflow-hidden border-border hover:shadow-lg transition-shadow duration-300">
-                  <CardContent className="p-0">
-                    <div className={`grid ${section.image ? 'lg:grid-cols-5' : 'grid-cols-1'} gap-0`}>
-                      {/* Content */}
-                      <div className={`p-8 ${section.image ? 'lg:col-span-3' : ''}`}>
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="p-2 bg-accent/10 rounded-lg">
-                            <section.icon className="w-5 h-5 text-accent" />
-                          </div>
-                          <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
-                            {section.organization}
-                          </span>
-                        </div>
-                        
-                        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
-                          {section.role}
-                        </h3>
-                        
-                        <div className="mb-6">
-                          <p className="text-sm font-medium text-muted-foreground mb-3">What I Did</p>
-                          <ul className="space-y-2">
-                            {section.actions.map((action, i) => (
-                              <li key={i} className="flex items-start gap-2 text-foreground/80">
-                                <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                                {action}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                          {section.skills.map((skill) => (
-                            <Badge 
-                              key={skill} 
-                              variant="outline" 
-                              className="text-xs border-border text-muted-foreground"
-                            >
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-
-                        {/* YouTube Embed */}
-                        {section.youtubeId && (
-                          <a 
-                            href={`https://www.youtube.com/watch?v=${section.youtubeId}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block mt-6 relative group overflow-hidden rounded-lg aspect-video max-w-md"
-                          >
-                            <img 
-                              src={`https://img.youtube.com/vi/${section.youtubeId}/maxresdefault.jpg`}
-                              alt="Watch video"
-                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-primary/40 flex items-center justify-center group-hover:bg-primary/50 transition-colors">
-                              <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center shadow-lg">
-                                <Play className="w-6 h-6 text-accent-foreground ml-1" fill="currentColor" />
-                              </div>
-                            </div>
-                          </a>
-                        )}
-                      </div>
-
-                      {/* Image */}
-                      {section.image && (
-                        <div className="lg:col-span-2 bg-secondary">
-                          <img 
-                            src={section.image} 
-                            alt={section.imageAlt}
-                            className="w-full h-full object-cover min-h-[250px] lg:min-h-full"
-                          />
-                        </div>
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedSection>
-            ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Languages Section */}
-      <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-6">
-          <AnimatedSection className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Communication & Languages
-              </h2>
-              <div className="w-16 h-1 bg-accent mx-auto rounded-full mb-8" />
-              <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Working across student communities with diverse cultural and linguistic backgrounds 
-                has strengthened my ability to communicate clearly, adapt messaging, and build trust 
-                across different audiences and contexts.
-              </p>
-            </div>
+        {/* BRIDGE Feature */}
+        <section className="py-16 md:py-20 bg-navy-deep text-primary-foreground relative overflow-hidden" id="bridge">
+          <div className="absolute inset-0 bg-gradient-glow opacity-40" />
+          <div className="container mx-auto px-6 max-w-screen-content relative">
+            <AnimatedSection>
+              <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-start">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-3">Current Role</p>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4">The BRIDGE — UTSC Library × Department of Management</h2>
+                  <p className="text-base text-primary-foreground/85 leading-relaxed mb-5">
+                    A UTSC environment where business, research, innovation, entrepreneurship, advanced training, and work-integrated learning converge.
+                    I work as an <strong className="text-accent">Emerging Technology Assistant</strong>, supporting student-facing access to research tools, data platforms, and applied technology experiences.
+                  </p>
+                  <ul className="space-y-2.5 mb-6">
+                    {[
+                      "Support emerging technology programming and student-facing learning experiences.",
+                      "Help students engage with business research tools, data platforms, and applied technology resources.",
+                      "Assist with technology-enabled workshops, demonstrations, and operational support where relevant.",
+                      "Contribute to an environment connecting academic theory with practical application.",
+                    ].map((b) => (
+                      <li key={b} className="flex gap-3 text-sm text-primary-foreground/85 leading-relaxed">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Emerging Technology", "Business Research", "Data Lab", "Innovation", "Entrepreneurship", "AI Tools", "VR / 3D Exposure", "Capital IQ", "Bloomberg Terminal", "Student Support"].map((t) => (
+                      <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
+                    ))}
+                  </div>
+                </div>
+                <div className="bg-primary-foreground/5 rounded-2xl border border-primary-foreground/15 p-6 backdrop-blur-sm">
+                  <div className="inline-flex p-3 rounded-xl bg-accent/15 border border-accent/25 mb-4">
+                    <Cpu className="w-7 h-7 text-accent" />
+                  </div>
+                  <p className="text-xs uppercase tracking-wider text-primary-foreground/60 font-semibold mb-1">Position</p>
+                  <p className="text-xl font-bold mb-4">Emerging Technology Assistant</p>
+                  <div className="space-y-2 text-sm text-primary-foreground/80">
+                    <div className="flex items-center gap-2"><Sparkles size={14} className="text-accent" /> Emerging Technology Programming</div>
+                    <div className="flex items-center gap-2"><BookOpen size={14} className="text-accent" /> Business Research Support</div>
+                    <div className="flex items-center gap-2"><Users size={14} className="text-accent" /> Student-Facing Service</div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Languages */}
-              <div className="space-y-4">
-                <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                  {languages.map((lang, index) => (
-                    <AnimatedSection key={lang.name} delay={index * 100} animation="scale">
-                      <div className="bg-card border border-border rounded-xl px-6 py-4 text-center hover:shadow-md transition-shadow duration-200">
-                        <p className="text-2xl mb-1">{lang.flag}</p>
-                        <p className="text-lg font-semibold text-foreground">{lang.name}</p>
-                        <p className="text-sm text-muted-foreground">{lang.level}</p>
+        {/* FLIP */}
+        <section className="py-16 md:py-20" id="flip">
+          <div className="container mx-auto px-6 max-w-screen-content">
+            <AnimatedSection>
+              <div className="grid lg:grid-cols-2 gap-10 items-center">
+                <div>
+                  <div className="inline-flex p-2.5 rounded-lg bg-accent/10 text-accent mb-4">
+                    <Users className="w-5 h-5" />
+                  </div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">FLIP</p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">First-Year Learning Integration Program</h2>
+                  <p className="text-base text-navy-pro font-medium mb-5">Peer Mentor / Work-Study Student</p>
+                  <p className="text-muted-foreground leading-relaxed mb-5">
+                    FLIP gave me practical experience supporting first-year students, coordinating programming, and helping student-facing initiatives move with structure.
+                  </p>
+                  <ul className="space-y-2.5 mb-6">
+                    {[
+                      "Supported large cohorts of first-year students through transition programming.",
+                      "Coordinated or contributed to 20+ initiatives across multiple concurrent workstreams.",
+                      "Acted as a bridge between students, staff, and administration.",
+                      "Supported programming that reached 200+ students.",
+                      "Created or supported presentations and student-facing communication materials.",
+                    ].map((b) => (
+                      <li key={b} className="flex gap-3 text-sm text-foreground/85 leading-relaxed">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { v: "20+", l: "Initiatives" },
+                      { v: "200+", l: "Students" },
+                      { v: "20+", l: "Presentations" },
+                    ].map((m) => (
+                      <div key={m.l} className="bg-secondary rounded-lg p-3 text-center">
+                        <p className="text-lg font-bold text-primary">{m.v}</p>
+                        <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">{m.l}</p>
                       </div>
-                    </AnimatedSection>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
+                  <img src={flipProgram} alt="FLIP program at UTSC" loading="lazy" className="w-full h-auto" />
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* MTA */}
+        <section className="py-16 md:py-20 bg-secondary/50" id="mta">
+          <div className="container mx-auto px-6 max-w-screen-content">
+            <AnimatedSection>
+              <div className="grid lg:grid-cols-2 gap-10 items-center">
+                <div className="order-2 lg:order-1 rounded-2xl overflow-hidden border border-border shadow-lg">
+                  <img src={mtaClub} alt="Management & Technology Association team" loading="lazy" className="w-full h-auto" />
+                </div>
+                <div className="order-1 lg:order-2">
+                  <div className="inline-flex p-2.5 rounded-lg bg-accent/10 text-accent mb-4">
+                    <Briefcase className="w-5 h-5" />
+                  </div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">MTA · Internal Strategy</p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Management & Technology Association</h2>
+                  <p className="text-base text-navy-pro font-medium mb-5">Vice President, Internal Strategy</p>
+                  <p className="text-muted-foreground leading-relaxed mb-5">
+                    Internal strategy, recruitment coordination, financial tracking, and operational accountability inside a student-led business and technology organization.
+                  </p>
+                  <ul className="space-y-2.5 mb-6">
+                    {[
+                      "Supported internal strategy and operational execution for student-led initiatives.",
+                      "Coordinated planning and cross-functional team operations.",
+                      "Supported multiple recruitment cycles with 100+ applicants.",
+                      "Supported $5K+ budget tracking and reconciliation.",
+                      "Helped improve transparency and internal reporting.",
+                    ].map((b) => (
+                      <li key={b} className="flex gap-3 text-sm text-foreground/85 leading-relaxed">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { v: "100+", l: "Applicants" },
+                      { v: "$5K+", l: "Tracking" },
+                      { v: "VP", l: "Internal Strategy" },
+                    ].map((m) => (
+                      <div key={m.l} className="bg-card border border-border rounded-lg p-3 text-center">
+                        <p className="text-lg font-bold text-primary">{m.v}</p>
+                        <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">{m.l}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* ECLIPSE */}
+        <section className="py-16 md:py-20" id="eclipse">
+          <div className="container mx-auto px-6 max-w-screen-content">
+            <AnimatedSection>
+              <div className="bg-card border-2 border-[hsl(var(--accent-yellow))/0.4] rounded-2xl p-8 md:p-10 grid lg:grid-cols-[1fr_1.3fr] gap-8 items-center shadow-md relative overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-award" />
+                <div className="rounded-xl overflow-hidden border border-border max-w-sm mx-auto">
+                  <img src={eclipseAward} alt="ECLIPSE 2026 First Place award" loading="lazy" className="w-full h-auto" />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[hsl(var(--accent-yellow))/0.15] border border-[hsl(var(--accent-yellow))/0.3] mb-4">
+                    <Trophy className="w-4 h-4 text-[hsl(45_85%_40%)]" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-[hsl(45_85%_30%)]">1st Place</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">ECLIPSE 2026 — Entrepreneurship Track</h2>
+                  <p className="text-muted-foreground leading-relaxed mb-5">
+                    Analyzed a complex business problem under time constraints, designed and justified an innovative solution, connected market logic with feasibility, and presented the final case to a judging panel.
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Analytical Thinking", "Structured Problem Solving", "Decision-Making Under Pressure", "Presentation & Storytelling", "Entrepreneurship", "Consulting-Style Case Work"].map((t) => (
+                      <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Ambassador */}
+        <section className="py-16 md:py-20 bg-secondary/50">
+          <div className="container mx-auto px-6 max-w-screen-content">
+            <AnimatedSection>
+              <div className="max-w-3xl">
+                <div className="inline-flex p-2.5 rounded-lg bg-accent/10 text-accent mb-4">
+                  <BookOpen className="w-5 h-5" />
+                </div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">UTSC Ambassador & Peer Mentor</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Student Campus Ambassador & Peer Mentor</h2>
+                <p className="text-muted-foreground leading-relaxed mb-5">
+                  Strengthened my ability to communicate professionally with prospective students, families, and university stakeholders — building public communication, relationship management, and brand-representation skills.
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {["Public Communication", "Professional Presence", "Brand Representation", "Relationship Management", "Student Support"].map((t) => (
+                    <Badge key={t} variant="secondary" className="text-xs">{t}</Badge>
                   ))}
                 </div>
-                <AnimatedSection delay={400} animation="fade-up">
-                  <div className="flex items-center justify-center md:justify-start gap-2 mt-6">
-                    <span className="text-2xl">🔥</span>
-                    <p className="text-foreground font-medium">
-                      800+ day Duolingo streak
-                    </p>
-                  </div>
-                </AnimatedSection>
               </div>
-
-              {/* Duolingo Profile Card */}
-              <AnimatedSection delay={200} animation="slide-right">
-                <a 
-                  href="https://www.duolingo.com/profile/DonatIvlie"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block mx-auto max-w-[280px] hover:scale-105 transition-transform duration-300"
-                >
-                  <img 
-                    src={duolingoProfile} 
-                    alt="Add me on Duolingo - @DonatIvlie" 
-                    className="w-full rounded-xl shadow-lg"
-                  />
-                  <p className="text-center text-sm text-muted-foreground mt-3">
-                    Scan to add me on Duolingo!
-                  </p>
-                </a>
-              </AnimatedSection>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
+            </AnimatedSection>
+          </div>
+        </section>
+      </main>
       <Footer />
     </div>
   );

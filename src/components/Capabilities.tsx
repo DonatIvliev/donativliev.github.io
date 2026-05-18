@@ -1,53 +1,32 @@
-import { Lightbulb, RotateCcw, BarChart3 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/useScrollAnimation";
-
-const capabilities = [
-  {
-    icon: Lightbulb,
-    title: "Product",
-    description:
-      "Discovery, requirements, roadmapping, and user-centric problem solving. I translate business needs into actionable product decisions.",
-  },
-  {
-    icon: RotateCcw,
-    title: "Agile Delivery",
-    description:
-      "Scrum ceremonies, backlog management, sprint planning, and stakeholder alignment. Keeping teams focused and shipping consistently.",
-  },
-  {
-    icon: BarChart3,
-    title: "Analysis",
-    description:
-      "Market research, feasibility studies, and process design. Data-informed decisions that support strategic initiatives.",
-  },
-];
+import { skillGroups } from "@/data/site";
 
 const Capabilities = () => {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <AnimatedSection className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Capabilities
+    <section className="py-20 md:py-24 bg-background" aria-labelledby="skills-heading">
+      <div className="container mx-auto px-6 max-w-screen-content">
+        <AnimatedSection className="max-w-2xl mb-12">
+          <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">Tools I Use to Structure Work</p>
+          <h2 id="skills-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            A practical toolkit across product delivery, data, research, and communication.
           </h2>
-          <div className="w-16 h-1 bg-accent mx-auto rounded-full" />
+          <p className="text-muted-foreground">
+            Selected tools, methods, and platforms applied across student-led, academic, and product work.
+          </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {capabilities.map((cap, index) => (
-            <AnimatedSection key={index} delay={index * 150} animation="fade-up">
-              <div className="group bg-card rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-border hover:border-accent/30 h-full">
-                <div className="mb-6">
-                  <div className="inline-flex p-4 bg-primary rounded-xl group-hover:bg-accent transition-colors duration-300">
-                    <cap.icon className="w-7 h-7 text-primary-foreground" />
-                  </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {skillGroups.map((g, i) => (
+            <AnimatedSection key={g.title} delay={i * 80} animation="fade-up">
+              <div className="bg-card border border-border rounded-2xl p-6 h-full">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-accent mb-4">{g.title}</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {g.items.map((item) => (
+                    <span key={item} className="text-xs font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground border border-border">
+                      {item}
+                    </span>
+                  ))}
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  {cap.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {cap.description}
-                </p>
               </div>
             </AnimatedSection>
           ))}
