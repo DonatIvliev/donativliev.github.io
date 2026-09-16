@@ -1,79 +1,80 @@
+# Business + Technology Portfolio Redesign
 
-# Portfolio Master Redesign Plan
+## Direction
+Reposition the site from a student portfolio into a concise, enterprise-ready personal website. The first screen will establish Donat as an early-career business and technology professional with current project-delivery experience at RBC, supported by emerging-technology work at U of T and operational leadership through MTA.
 
-Full restructure of the site into a consulting/LinkedIn-style portfolio positioning Donat for Fall 2026 / Winter 2027 internships. Below is the concrete build plan.
+The visual system will retain the established navy identity while becoming more editorial and restrained: white and pale blue-gray surfaces, deep navy typography, thin dividers, selective feature blocks, minimal shadows, and only subtle blue/yellow accents. The site will avoid oversized profile imagery, card-heavy layouts, long skill clouds, and excessive animation.
 
-## 1. Design system (src/index.css + tailwind.config.ts)
-- Replace HSL tokens with new navy palette:
-  - `--background` #F6F8FA, `--foreground` #172033, `--muted-foreground` #5F6B7A
-  - `--primary` #0B2545 (deep navy), `--primary-foreground` #FFFFFF
-  - `--accent` #2F7DF6 (electric blue), `--accent-foreground` #FFFFFF
-  - `--secondary` #E8EEF6, `--border` #D8E0EA
-  - Custom: `--navy-deep` #071A33, `--navy-pro` #1E4F80, `--blue-gray` #64808D, `--blue-gray-light` #88A2AB, `--accent-yellow` #F4DA30
-  - `--gradient-navy`, `--gradient-subtle`, `--gradient-glow`
-- Remove unused Lora + Space Mono imports; keep Inter only.
-- Remove dark-mode tokens (no toggle).
+## Information Architecture
 
-## 2. SEO + metadata
-- `index.html`: new title, description, canonical, OG tags, JSON-LD Person schema, inline SVG favicon with "DI" monogram (replace `data:,` icon).
-- Update README.
+### Navigation
+- Home
+- Experience
+- Work
+- About
+- Resume icon/button
+- Remove “Studying” and “Contact” as primary navigation destinations.
+- Keep email, LinkedIn, and GitHub available in the closing section and footer.
 
-## 3. Routing (src/App.tsx)
-- Add `/experience` route → new page.
-- Keep `/`, `/portfolio`, `/studying`, `/contact`.
+### Home
+1. Minimal hero: “Business × Technology × Delivery,” a short outcome-oriented headline, RBC/U of T context, and links to Work, LinkedIn, and Resume.
+2. Selected Experience: RBC as the dominant feature, with smaller The BRIDGE and MTA entries.
+3. Selected Work: three differentiated cases using Problem → Contribution → Result.
+4. Capabilities: Delivering Projects, Working With Data, Automating Work, and Adopting Technology.
+5. Compact Recognition + Education band.
+6. Quiet contact close.
 
-## 4. Shared data (new src/data/)
-- `siteConfig.ts`, `navigation.ts`, `metrics.ts`, `experiences.ts`, `projects.ts`, `skills.ts`, `leadership.ts` — drive cards from data.
+### Experience
+- RBC — Project Delivery Specialist Intern, Sep 2026–Present.
+  - 35+ participant data talent program.
+  - VBA-enabled visibility and tracking.
+  - Enterprise mentoring-platform support.
+  - AI-enabled Jira/Kanban documentation workflow.
+  - Enterprise learning work supporting 1,000+ data-science practitioners.
+- University of Toronto — Emerging Technology Assistant & Department Programs Associate.
+  - 15-student VR learning pilot.
+  - 40+ custom 3D models and repeatable operating procedure.
+  - Digital asset and participant-data improvements.
+- MTA — Program Operations & Internal Strategy Coordinator.
+  - Data Analytics Case Competition.
+  - Initiative prioritization, recruitment, and $5K+ financial visibility.
+- Present work as contextual initiative modules, not copied résumé bullets or an exhaustive timeline.
 
-## 5. Reusable components (new/updated src/components/)
-- `Navbar` — add Experience, Studying, Contact links; DI monogram; mobile menu; active state.
-- `Footer` — add nav links column, role line, GitHub link.
-- `SectionHeader`, `MetricCard`, `ProofMetricStrip`, `CapabilityCard`, `ExperienceCard`, `ProjectCaseStudyCard`, `LeadershipCard`, `SkillPill`, `TimelineStep`, `QuoteBlock`, `ContactCard`, `CTAButton`, `AnimatedSection` (exists), `PageTransitionWrapper`.
-- Add `framer-motion` (install) for restrained fade-up + stagger reveals.
+### Work
+Retain only work that adds distinct evidence:
+- ECLIPSE 2026: privacy-focused on-device AI recommendation, financial model, executive pitch, 1st Place.
+- Business performance analysis: three-year financial model and Power BI liquidity/solvency dashboard.
+- Agile stakeholder project: Scrum Master work on a Java product using Jira/Kanban.
+- Keep tools secondary to the business question and outcome; remove weaker concept-only projects from prominence.
 
-## 6. Home page (src/pages/Index.tsx + components)
-Sections in order:
-1. `Hero` — rewrite with new headline ("Product-minded executor with an Agile delivery backbone"), eyebrow, subtitle, support paragraph, role + availability chips, 4 CTAs (Portfolio, Experience, Resume, Contact), badge row, 6 proof metrics, navy gradient bg with subtle grid.
-2. `ProofMetricStrip` — 6 metrics with proof lines.
-3. `CurrentRoleBridge` — premium horizontal feature card for The BRIDGE.
-4. `WhatIDo` — rewrite to 5 value-creation cards (Product & BA, Emerging Tech, Execution, Data/Finance, Communication) each with proof + tags.
-5. `OperatingSystem` — keep as dark navy timeline (Diagnose→Improve), refine copy + quote.
-6. `FeaturedProjects` — rewrite to 4 cards (Smaked dominant, SafePlan, Igluva, BRIDGE) with role, category, problem, what I did, tags, evidence.
-7. `LeadershipPreview` — 4 cards (BRIDGE, FLIP, MTA, ECLIPSE).
-8. `Capabilities` (rename to Skills) — grouped skill pills (Product/Delivery, Emerging Tech/Research, Data/Business, Technical, Communication).
-9. `ContactCTA` — rewrite with Fall 2026 / Winter 2027 framing + 4 CTAs.
-10. `Footer`.
+### About
+- A concise professional trajectory from technical/software study to Management & IT, then execution, emerging-technology adoption, and enterprise delivery.
+- Keep education, certifications, languages, and selected recognition compact.
+- Preserve personality through concrete examples rather than trait lists.
 
-## 7. Experience page (new src/pages/Experience.tsx)
-- Top metric strip, then stacked `ExperienceCard`s: BRIDGE, FLIP, MTA, SAVI Finance, UTSC Ambassador. Each: role, org, context, bullets, skill tags.
+## Content and Accuracy
+- Use the attached revised résumé as the factual baseline and the master brief for tone and hierarchy.
+- Use conservative language around RBC and expose no internal screenshots, proprietary names, customer data, or restricted details.
+- Update all outdated role titles, dates, metrics, page copy, metadata, structured data, alt text, and footer wording.
+- Replace the existing downloadable résumé with a polished PDF generated from the newly attached DOCX, while preserving the familiar Resume link.
+- Include only defensible metrics: 35+, 1,000+, 15, 40+, 10, 100+, 3 cycles, $5K+, and 1st Place where context supports them.
 
-## 8. Portfolio page (src/pages/Portfolio.tsx)
-- Filter chips (All / Product / Agile / BA / Emerging Tech / Data / Leadership).
-- Case-study cards in order: Smaked, SafePlan, BRIDGE, Igluva, optional Power BI dashboard, ECLIPSE. Each expanded: problem, role, what I did, tools, evidence, tags.
+## Design and Interaction
+- Use a 1200–1320px editorial grid with generous spacing and fewer, stronger sections.
+- Favor dividers, asymmetric columns, numbered labels, and typography over nested cards.
+- Keep the headshot as a small supporting element on About rather than a dominant hero image.
+- Use restrained 200–500ms reveals and hover transitions; remove bouncing, pulsing, and decorative visual noise.
+- Ensure strong mobile composition, keyboard access, visible focus states, semantic headings, sufficient contrast, and reduced-motion support.
 
-## 9. Studying page (src/pages/Studying.tsx)
-- Recognition strip, then 5 sections (BRIDGE feature, FLIP, MTA, ECLIPSE 1st place with tasteful yellow accent, UTSC Ambassador). Optional small Duolingo card.
+## Technical Work
+- Preserve React, Vite, TypeScript, Tailwind, React Router, and existing GitHub Pages deployment support.
+- Rebuild shared data around the new experience/work hierarchy and remove obsolete components/data after routes are migrated.
+- Keep `/portfolio` and `/studying` redirects or compatibility paths so old shared links do not break, while the main site uses `/work` and `/about`.
+- Update app-specific title, description, Open Graph fields, canonical URL, and Person structured data for the RBC-era positioning.
+- Remove the remote CSS font import and load the selected font safely in the document head or use a system stack.
+- Verify desktop and mobile layouts, navigation, downloadable résumé, internal links, runtime behavior, and GitHub Pages route handling.
 
-## 10. Contact page (src/pages/Contact.tsx)
-- Subtitle with Fall 2026 / Winter 2027 framing.
-- 4 contact cards (Email, LinkedIn, GitHub, Resume), location + role + availability info.
-- Simple mailto-based form (Name / Email / Message → opens mail client).
-
-## 11. Accessibility + perf
-- Semantic landmarks, single H1 per page, alt text, focus states, `prefers-reduced-motion` guard in motion variants.
-- Lazy-load below-fold images, remove unused fonts/tokens.
-
-## Technical Details
-- Stack stays: React + Vite + TS + Tailwind + React Router + shadcn. Add: `framer-motion`.
-- GH Pages SPA already handled via `public/404.html` + `index.html` redirect script — leave intact.
-- `public/resume.pdf` — keep link; if missing, the user already controls the file (do not fabricate).
-- Headshot reuse: `src/assets/headshot.jpg`.
-- No backend. Contact form = mailto fallback.
-- Color usage: yellow (#F4DA30) only on ECLIPSE 1st place badge accents.
-
-## Out of scope (won't do)
-- Real Figma assets, new photography, real Power BI dashboard screenshots — placeholders/icons where evidence images are unavailable.
-- Backend contact form integration (mailto only).
-- Per-route `react-helmet-async` (single sitewide head is sufficient for this scope).
-
-Proceeding to implementation on approval.
+## Out of Scope
+- No confidential RBC visuals or details.
+- No invented project metrics, screenshots, clients, or outcomes.
+- No backend contact form or new account integrations.
