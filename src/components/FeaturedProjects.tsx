@@ -12,10 +12,10 @@ const accentBg: Record<string, string> = {
 };
 
 const FeaturedProjects = () => {
-  // Home: Smaked (dominant) + SafePlan + Igluva + Bridge
-  const list = projects.filter((p) => ["smaked", "safeplan", "igluva", "bridge"].includes(p.id));
-  const smaked = list.find((p) => p.id === "smaked")!;
-  const rest = list.filter((p) => p.id !== "smaked");
+  // Home: ECLIPSE (dominant) + three supporting cases
+  const list = projects.filter((p) => ["eclipse", "finance-model", "safeplan", "vr-pilot"].includes(p.id));
+  const smaked = list.find((p) => p.id === "eclipse")!;
+  const rest = list.filter((p) => p.id !== "eclipse");
 
   return (
     <section className="py-20 md:py-24 bg-background" aria-labelledby="featured-heading">
@@ -24,7 +24,7 @@ const FeaturedProjects = () => {
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">Featured Work</p>
             <h2 id="featured-heading" className="text-3xl md:text-4xl font-bold text-foreground">
-              Selected work showing product thinking, Agile delivery, emerging technology, and execution.
+              Selected work — each one a problem, a contribution, and a result.
             </h2>
           </div>
           <Button variant="outline" size="sm" asChild>
@@ -102,7 +102,7 @@ const FeaturedProjects = () => {
                       <span key={t} className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-secondary text-secondary-foreground">{t}</span>
                     ))}
                   </div>
-                  <Link to={`/portfolio#${p.id}`} className="text-accent text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
+                  <Link to={`/work#${p.id}`} className="text-accent text-sm font-semibold inline-flex items-center gap-1 hover:gap-2 transition-all">
                     Read more <ArrowRight size={14} />
                   </Link>
                 </div>
