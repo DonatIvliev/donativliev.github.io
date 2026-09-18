@@ -28,7 +28,7 @@ const FeaturedProjects = () => {
             </h2>
           </div>
           <Button variant="outline" size="sm" asChild>
-            <Link to="/portfolio" className="flex items-center gap-1.5">All projects <ArrowRight size={14} /></Link>
+            <Link to="/work" className="flex items-center gap-1.5">All projects <ArrowRight size={14} /></Link>
           </Button>
         </AnimatedSection>
 
@@ -75,7 +75,7 @@ const FeaturedProjects = () => {
                 ))}
               </ul>
               <Button variant="hero" size="sm" asChild className="w-fit">
-                <Link to={`/portfolio#${smaked.id}`} className="flex items-center gap-1.5">View case study <ArrowRight size={14} /></Link>
+                <Link to={`/work#${smaked.id}`} className="flex items-center gap-1.5">View case study <ArrowRight size={14} /></Link>
               </Button>
             </div>
           </article>

@@ -102,7 +102,7 @@ const Contact = () => {
                   <div className="bg-secondary/50 rounded-xl p-4 border border-border">
                     <Briefcase className="w-4 h-4 text-accent mb-2" />
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Current Role</p>
-                    <p className="text-sm font-semibold text-foreground leading-tight">Emerging Tech Assistant · The BRIDGE</p>
+                    <p className="text-sm font-semibold text-foreground leading-tight">Project Delivery Specialist Intern · RBC</p>
                   </div>
                   <div className="bg-secondary/50 rounded-xl p-4 border border-border">
                     <CalendarCheck className="w-4 h-4 text-accent mb-2" />
