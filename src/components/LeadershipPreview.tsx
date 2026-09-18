@@ -46,8 +46,8 @@ const LeadershipPreview = () => {
         </div>
 
         <AnimatedSection className="mt-10 flex justify-center" delay={400}>
-          <Link to="/studying" className="text-accent font-semibold text-sm inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
-            See full Studying, Leadership & Execution <ArrowRight size={14} />
+          <Link to="/about" className="text-accent font-semibold text-sm inline-flex items-center gap-1.5 hover:gap-2.5 transition-all">
+            More on background, education & recognition <ArrowRight size={14} />
           </Link>
         </AnimatedSection>
       </div>
