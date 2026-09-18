@@ -35,7 +35,7 @@ const ContactCTA = () => {
               </a>
             </Button>
             <Button variant="navyGhost" size="lg" className="border border-primary-foreground/25" asChild>
-              <Link to="/portfolio">View Portfolio</Link>
+              <Link to="/work">View Portfolio</Link>
             </Button>
           </div>
         </AnimatedSection>

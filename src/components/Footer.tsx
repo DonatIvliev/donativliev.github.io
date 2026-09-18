@@ -15,8 +15,8 @@ const Footer = () => {
               <span className="text-base font-semibold">Donat Ivliev</span>
             </Link>
             <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Management & IT @ UTSC<br />
-              Emerging Technology Assistant @ The BRIDGE<br />
+              Project Delivery Specialist Intern @ RBC<br />
+              BBA Management & IT @ U of T Scarborough<br />
               {site.location}
             </p>
             <p className="text-accent text-xs font-medium mt-3 uppercase tracking-wider">
